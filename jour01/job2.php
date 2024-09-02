@@ -21,7 +21,7 @@ echo "Avant renversement : $sentence.</br>Après renversement : $result2."
 
 <h2>Avec une la fonction isset() dans une boucle while</h2>
 <?php
-function inverserChaine($chaine)
+function inverserChaine(string $chaine) : string
 {
     // déclarer une chaine de caracètre (vide)
     $chaineInverse = '';
@@ -36,10 +36,10 @@ function inverserChaine($chaine)
 
     // Parcourir la chaîne de la fin au début, permet de la construire directement
     /*
-        le -1 indique qu'il faut commencer du dernier caractère indexé
+        *le -1 indique qu'il faut commencer du dernier caractère indexé
         le i-- permet de décrémenter, au lieu d'ajouter --> on enlève dans l'index
         le . en PHP permet de concaténer (assembler des chaînes)
-            .= est une version abrégé, qui se met uniquement entre les deux élément que l'on veut joindre
+           .= est une version abrégé, qui se met uniquement entre les deux élément que l'on veut joindre
     */
     for ($i = $longueur - 1; $i >= 0; $i--) {
         // donc ici on assemble les éléments, caractère par caractère en remontant dans le sens inverse du mots intiial
