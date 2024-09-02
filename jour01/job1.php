@@ -1,4 +1,4 @@
-<!-- //TODO : JOB 1 - COMPTER LE NOMBRE D'OCCURRENCES -->
+<h1>JOB 1 - COMPTER LE NOMBRE D'OCCURRENCES</h1>
 
 <?php
 function my_str_search(string $haystack, string $needle): int
@@ -35,5 +35,5 @@ $haystack = "La Plateforme";
 $needle = "a";
 $result = my_str_search($haystack, $needle);
 
-echo "Le nombre de $needle est $result"
+echo "La lettre $needle dans la string $haystack est utilisé $result fois."
 ?>
