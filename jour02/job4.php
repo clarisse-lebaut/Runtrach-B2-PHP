@@ -22,7 +22,19 @@ function find_all_student_grades(): array
 
     $pdo = connectBDD();
     //*? pour selection seulement quelque élément dans une colonne d'une table
-    $requeteSQL = 'SELECT fullname, email, grade_id FROM student';
+    //*! quand on doit faire appel au clé étrangères et prendre des infos dans deux tables : (ex:student.fullname), ce qu'il y avant le poijt permet de préciser dans quelle table aller
+    /*
+    *SELECT student.fullname, student.email, grades.grade_name :
+    Colonnes à sélectionner, récupérer fullname et email de la table student, et name de la table grade.
+    
+    *FROM student :
+    Table principale = student. Sélection des données dans cette table.
+    
+    *INNER JOIN grades ON student.grade_id = grades.id :
+    INNER JOIN utilisée pour combiner les données de la table student et de la table grade. 
+    ON student.grade_id = grades.id indique comment les tables sont liées : les valeurs de grade_id dans la table student correspondent aux valeurs de id dans la table grade.
+    */
+    $requeteSQL = 'SELECT student.fullname, student.email, grade.name FROM student INNER JOIN grade ON student.grade_id = grade.id';
     $getStudentByGrade = $pdo->prepare($requeteSQL);
     $getStudentByGrade->execute();
 
