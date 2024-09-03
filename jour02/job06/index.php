@@ -1,5 +1,3 @@
-<h1>Job 6 : Classer les étudiants par promotions</h1>
-
 <?php
 
 function connectBDD()
@@ -14,10 +12,7 @@ function connectBDD()
 
 function find_ordered_students()
 {
-    // Connexion à la base de données
     $pdo = connectBDD();
-
-    // Requête SQL pour récupérer les informations
     $requeteSQL =
         'SELECT
             grade.name AS formation_name,
@@ -31,27 +26,20 @@ function find_ordered_students()
         LEFT JOIN
             student ON student.grade_id = grade.id  
         ORDER BY
-            grade.name ASC';  // Tri des résultats par nom de formation (facultatif)
+            grade.name ASC';
 
     $findByPromotion = $pdo->prepare($requeteSQL);
     $findByPromotion->execute();
-
-    // Récupération des résultats
     $results = $findByPromotion->fetchAll(PDO::FETCH_ASSOC);
-
-    // Transformation des résultats en tableau associatif par formation
     $groupedByFormation = [];
 
-    // Grouper les résultats par formation
     foreach ($results as $row) {
         $formationName = $row['formation_name'];
 
-        // Assurez-vous que la clé de formation existe dans le tableau associatif
         if (!isset($groupedByFormation[$formationName])) {
             $groupedByFormation[$formationName] = [];
         }
 
-        // Préparer les informations de l'étudiant
         $studentInfo = [
             'id' => $row['student_id'],
             'fullname' => $row['fullname'],
@@ -60,11 +48,9 @@ function find_ordered_students()
             'gender' => $row['gender'],
         ];
 
-        // Ajouter les informations de l'étudiant au tableau de la formation correspondante
         $groupedByFormation[$formationName][] = $studentInfo;
     }
 
-    // Retourner le tableau regroupé
     return $groupedByFormation;
 }
 
@@ -72,4 +58,3 @@ function find_ordered_students()
 
 $result = find_ordered_students();
 var_dump($result);
-?>
