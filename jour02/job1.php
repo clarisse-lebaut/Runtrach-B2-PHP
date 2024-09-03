@@ -42,10 +42,10 @@ var_dump($student);
 ?>
 
 <!-- Afficher les données dans un tableau HTML -->
-<table sytle="border:1px solid black">
+<table style="border:1px solid black">
     <caption>Tous les étudiants et leurs informations</caption>
-    <thead>
-        <tr sytle="background-color=lightgray;">
+    <thead style="border:1px solid black">
+        <tr style="background-color:blue;color:white;border:1px solid black">
             <!-- Afficher les en têtes des colonnes -->
             <?php
             /* 
@@ -74,7 +74,7 @@ var_dump($student);
             //*TODO : et on crée $value pour itérer sur chaque valeur de l'enregistrement $students.
             foreach ($students as $value) {
                 //print les cellules, et on convertie les caractère spéciaux en les concaténant
-                echo '<td>' . htmlspecialchars($value) . '</td>'; //on met la balise pour remplir chaque cellule avec les données
+                echo '<td style="border:1px solid black">' . htmlspecialchars($value) . '</td>'; //on met la balise pour remplir chaque cellule avec les données
             }
             echo '</tr>'; //on ferme la balise des lignes
         }
