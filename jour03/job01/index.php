@@ -28,7 +28,8 @@ echo "<b>Print avec les informations par défauts :</b><br>" . $floor2->createFl
 
 //* print les promotions
 //* ---------------------------
-$grade = new Grade(8, 6, "Master Art de garder la tête haute", 2024);
+$year = new DateTime('2024-05-09');
+$grade = new Grade(8, 6, "Master Art de garder la tête haute", $year);
 $grade2 = new Grade();
 echo "<b>Print avec des nouvelle informations :</b><br>" . $grade->createGrade() . "<br>";
 echo "<b>Print avec les informations par défauts :</b><br>" . $grade2->createGrade() . "<br>";
