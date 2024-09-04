@@ -7,12 +7,12 @@ class Student
     // en gros c'est la base de la classe, c'est la carte d'identité de l'objet qu'on crée
     // il faut donc définir la visibilité qui permet d'utiliser ou pas ces éléments dans d'autre classes
     // et crée la variable de ce qu'on va créé
-    public $id;
-    public $grade_id;
-    public $email;
-    public $fullname;
-    public $birthdate;
-    public $gender;
+    private $id;
+    private $grade_id;
+    private $email;
+    private $fullname;
+    private $birthdate;
+    private $gender;
 
 
     //? Dans cette deuximème partie -> on définit ce qui va être construit automatiquement à l'apel de la classe
@@ -20,7 +20,7 @@ class Student
     //! nouvel élément très intéressant --> pour avoir des paramètres par défaut à l'appel de la class, il faut entre les parenthèse dire à quoi est égal le parmètre
     //* $this->id --> on prend la variable crée juste avant
     //* = $id; --> et on dit que c'est égal à cet élément là présent entre paranthèse dans les paramètres
-    public function __construct(int $id = 0, int $grade_id = 1, string $email = "test@gmail.com", string $fullname = "Barabara Streisand", ?DateTime $birthdate = null, string $gender = "None")
+    private function __construct(int $id = 0, int $grade_id = 1, string $email = "test@gmail.com", string $fullname = "Barabara Streisand", ?DateTime $birthdate = null, string $gender = "None")
     {
         $this->id = $id;
         $this->grade_id = $grade_id;
@@ -35,7 +35,7 @@ class Student
     //? Dans cette troisième partie -> on crée la fonction dans laquelle on retourne le résltat qu'on attend
     // Tous les éléments sont crée, il suffit juste de les stocker pour les faire apparaitre dans la page
 
-    public function createStudent()
+    private function createStudent()
     {
         $formattedDate = $this->birthdate->format('Y-m-d');
         // Ici, vous pouvez ajouter le code nécessaire pour enregistrer l'étudiant dans une base de données ou pour une autre action spécifique.

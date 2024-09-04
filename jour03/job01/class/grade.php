@@ -2,12 +2,12 @@
 
 class Grade
 {
-    public $id;
-    public $room_id;
-    public $name;
-    public $year;
+    private $id;
+    private $room_id;
+    private $name;
+    private $year;
 
-    public function __construct(?int $id = null, ?int $room_id = null, ?string $name = null, ?DateTime $year = null)
+    private function __construct(?int $id = null, ?int $room_id = null, ?string $name = null, ?DateTime $year = null)
     {
         $this->id = $id;
         // les deux points d'interrogation me permettent de modifier la valeur en ce que je veux par défaut
@@ -18,7 +18,7 @@ class Grade
         $this->year = $year ?? new DateTime('1995-01-01');
     }
 
-    public function createGrade()
+    private function createGrade()
     {
         $formattedDate = $this->year->format('Y-m-d');
         return "Information sur la promotion :<br> 

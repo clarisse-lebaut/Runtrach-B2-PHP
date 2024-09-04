@@ -2,12 +2,12 @@
 
 class Room
 {
-    public $id;
-    public $floor_id;
-    public $name;
-    public $capacity;
+    private $id;
+    private $floor_id;
+    private $name;
+    private $capacity;
 
-    public function __construct(int $id = null, int $floor_id = null, string $name = null, int $capacity = null)
+    private function __construct(int $id = null, int $floor_id = null, string $name = null, int $capacity = null)
     {
         $this->id = $id;
         $this->floor_id = $floor_id;
@@ -15,7 +15,7 @@ class Room
         $this->capacity = $capacity;
     }
 
-    public function createRoom()
+    private function createRoom()
     {
         return "Informations sur la salle : <br>
         id : {$this->id}<br>
