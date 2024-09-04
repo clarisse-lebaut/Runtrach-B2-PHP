@@ -19,9 +19,10 @@ class Student
 
     //? Dans cette deuximème partie -> on définit ce qui va être construit automatiquement à l'apel de la classe
     // on type les paramètres, important pour la création, ce sont les élémnts qui seront tous les même pour tous les novueau élément crée
+    //! nouvel élément très intéressant --> pour avoir des paramètres par défaut à l'appel de la class, il faut entre les parenthèse dire à quoi est égal le parmètre
     //* $this->id --> on prend la variable crée juste avant
     //* = $id; --> et on dit que c'est égal à cet élément là présent entre paranthèse dans les paramètres
-    public function __construct(int $id, int $grade_id, string $email, string $fullname, DateTime $birthdate, string $gender)
+    public function __construct(int $id = 0, int $grade_id = 1, string $email = "test@gmail.com", string $fullname = "Barabara Streisand", DateTime $birthdate = new DateTime('1995-01-01'), string $gender = "None")
     {
         $this->id = $id;
         $this->grade_id = $grade_id;
@@ -33,7 +34,7 @@ class Student
 
     //? Dans cette troisième partie -> on crée la fonction dans laquelle on retourne le résltat qu'on attend
     // Tous les éléments sont crée, il suffit juste de les stocker pour les faire apparaitre dans la page
-    
+
     public function createStudent()
     {
         // Ici, vous pouvez ajouter le code nécessaire pour enregistrer l'étudiant dans une base de données ou pour une autre action spécifique.
@@ -45,6 +46,8 @@ class Student
 $birthdate = new DateTime('1998-08-12');
 $student = new Student(1, 8, "test@gmail.com", "Alien War", $birthdate, "Homme");
 $student2 = new Student(1, 8, "test@gmail.com", "Sherlock Holmes", $birthdate, "Homme");
+$student3 = new Student();
 echo $student->createStudent();
 echo $student2->createStudent();
+echo $student3->createStudent();
 ?>
