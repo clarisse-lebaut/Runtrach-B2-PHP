@@ -26,6 +26,8 @@ class Student
         $this->grade_id = $grade_id;
         $this->email = $email;
         $this->fullname = $fullname;
+        //Opérateur de Fusion Null : Utilisez l'opérateur ?? dans le constructeur pour 
+        //fournir une valeur de remplacement lorsque le paramètre est null.
         $this->birthdate = $birthdate ?? new DateTime('1995-01-01');
         $this->gender = $gender;
     }
