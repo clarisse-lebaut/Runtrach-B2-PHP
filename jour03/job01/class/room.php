@@ -37,7 +37,7 @@ class Room
 
     public function setFloorId(int $floor_id): static
     {
-        $this->$floor_id = $floor_id;
+        $this->floor_id = $floor_id;
         return $this;
     }
     public function getFloorId()
