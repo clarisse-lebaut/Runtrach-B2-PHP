@@ -53,6 +53,10 @@ $floor2 = new Floor();
 echo "<b>Print avec des nouvelle informations :</b><br>" . $floor->createFloor() . "<br>";
 echo "<b>Print avec les informations par défauts :</b><br>" . $floor2->createFloor() . "<br>";
 
+$floor3 = (new Floor(856, "Etage 3", 85))->createFloor();
+echo "<b>Print avec des nouvelle informations :</b><br>" . $floor3;
+
+
 //* print les promotions
 //* ---------------------------
 $year = new DateTime('2024-05-09');
