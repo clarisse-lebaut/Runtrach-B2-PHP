@@ -1,5 +1,3 @@
-<h1>Job 1 : Revoir le principe de Class</h1>
-
 <?php
 //* Pour crée une classe, on commence par la créé
 // le nom de la classe est toujours avvec une majuscule
@@ -22,13 +20,13 @@ class Student
     //! nouvel élément très intéressant --> pour avoir des paramètres par défaut à l'appel de la class, il faut entre les parenthèse dire à quoi est égal le parmètre
     //* $this->id --> on prend la variable crée juste avant
     //* = $id; --> et on dit que c'est égal à cet élément là présent entre paranthèse dans les paramètres
-    public function __construct(int $id = 0, int $grade_id = 1, string $email = "test@gmail.com", string $fullname = "Barabara Streisand", DateTime $birthdate = new DateTime('1995-01-01'), string $gender = "None")
+    public function __construct(int $id = 0, int $grade_id = 1, string $email = "test@gmail.com", string $fullname = "Barabara Streisand", ?DateTime $birthdate = null, string $gender = "None")
     {
         $this->id = $id;
         $this->grade_id = $grade_id;
         $this->email = $email;
         $this->fullname = $fullname;
-        $this->birthdate = $birthdate;
+        $this->birthdate = $birthdate ?? new DateTime('1995-01-01');
         $this->gender = $gender;
     }
 
@@ -37,8 +35,16 @@ class Student
 
     public function createStudent()
     {
+        $formattedDate = $this->birthdate->format('Y-m-d');
         // Ici, vous pouvez ajouter le code nécessaire pour enregistrer l'étudiant dans une base de données ou pour une autre action spécifique.
-        return "L'étudiant {$this->fullname} est crée !";
+        return " Informations de l'étudiant :<br>
+            id : {$this->id},<br>
+            grade_id : {$this->grade_id}<br>
+            email : {$this->email}<br>
+            fullname : {$this->fullname}<br>
+            birthdate : {$formattedDate}<br>
+            gender : {$this->gender}<br>
+            ";
     }
 }
 
@@ -50,4 +56,3 @@ class Student
 // echo $student->createStudent();
 // echo $student2->createStudent();
 // echo $student3->createStudent();
-?>
