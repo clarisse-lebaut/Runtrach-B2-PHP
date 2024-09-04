@@ -35,6 +35,16 @@ class Room
         return $this->id;
     }
 
+    public function setFloorId(int $floor_id): static
+    {
+        $this->$floor_id = $floor_id;
+        return $this;
+    }
+    public function getFloorId()
+    {
+        return $this->floor_id;
+    }
+
     public function setName(string $name): static
     {
         $this->name = $name;
@@ -43,16 +53,6 @@ class Room
     public function getName()
     {
         return $this->name;
-    }
-
-    public function setFloorId(int $floor_id): static
-    {
-        $this->$floor_id = $floor_id;
-        return $this;
-    }
-    public function getFloorId()
-    {
-        return $this->capacity;
     }
 
     public function setCapacity(int $capacity): static
