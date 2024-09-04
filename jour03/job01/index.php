@@ -7,6 +7,7 @@
 require "class/student.php";
 require "class/floor.php";
 require 'class/grade.php';
+require 'class/room.php';
 
 
 //* print des nouveau étudiants
@@ -22,7 +23,6 @@ echo "<b>Print avec des nouvelle informations :</b><br>" . $student3->createStud
 //* ---------------------------
 $floor = new Floor(0, "Etage 3", 3);
 $floor2 = new Floor();
-
 echo "<b>Print avec des nouvelle informations :</b><br>" . $floor->createFloor() . "<br>";
 echo "<b>Print avec les informations par défauts :</b><br>" . $floor2->createFloor() . "<br>";
 
@@ -30,15 +30,13 @@ echo "<b>Print avec les informations par défauts :</b><br>" . $floor2->createFl
 //* ---------------------------
 $grade = new Grade(8, 6, "Master Art de garder la tête haute", 2024);
 $grade2 = new Grade();
-
 echo "<b>Print avec des nouvelle informations :</b><br>" . $grade->createGrade() . "<br>";
 echo "<b>Print avec les informations par défauts :</b><br>" . $grade2->createGrade() . "<br>";
 
-
 //* print les salles
 //* ---------------------------
-
-
-
-
+$room = new Room(8, 12, "Salle de faire les mauvais choix", 521);
+$room2 = new Room();
+echo "<b>Print avec des nouvelle informations :</b><br>" . $room->createRoom() . "<br>";
+echo "<b>Print avec les informations par défauts :</b><br>" . $room2->createRoom() . "<br>";
 ?>
