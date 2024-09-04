@@ -24,4 +24,44 @@ class Room
         capacity : {$this->capacity}<br>
         ";
     }
+
+    public function setId(int $id): static
+    {
+        $this->id = $id;
+        return $this;
+    }
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setName(string $name): static
+    {
+        $this->name = $name;
+        return $this;
+    }
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function setFloorId(int $floor_id): static
+    {
+        $this->$floor_id = $floor_id;
+        return $this;
+    }
+    public function getFloorId()
+    {
+        return $this->capacity;
+    }
+
+    public function setCapacity(int $capacity): static
+    {
+        $this->capacity = $capacity;
+        return $this;
+    }
+    public function getCapacity()
+    {
+        return $this->capacity;
+    }
 }
