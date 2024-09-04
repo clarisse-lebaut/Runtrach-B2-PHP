@@ -13,12 +13,23 @@ require 'class/room.php';
 //* print des nouveau étudiants
 //* ---------------------------
 $birthdate = new DateTime('1998-08-12');
+
 $student = new Student(1, 8, "test@gmail.com", "Alien War", $birthdate, "Homme");
+
 $student2 = new Student(1, 8, "test@gmail.com", "Sherlock Holmes", $birthdate, "Homme");
+$email = 'nouveladressemail@gmail.com';
+// Utilisation du setter pour modfier la valeur de $email
+try {
+    $student2->setEmail($email); // Fonctionne bien
+} catch (InvalidArgumentException $e) {
+    echo 'Erreur : ' . $e->getMessage();
+}
+
 $student3 = new Student();
+
 echo "<b>Print avec des nouvelle informations :</b><br>" . $student->createStudent() . "<br>";
-echo "<b>Print avec les informations par défauts :</b><br>" . $student2->createStudent() . "<br>";
-echo "<b>Print avec des nouvelle informations :</b><br>" . $student3->createStudent() . "<br>";
+echo "<b>Print avec des nouvelle informations :</b><br>" . $student2->createStudent() . "<br>";
+echo "<b>Print avec les informations par défauts :</b><br>" . $student3->createStudent() . "<br>";
 //* print les étages
 //* ---------------------------
 $floor = new Floor(0, "Etage 3", 3);
