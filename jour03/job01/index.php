@@ -15,21 +15,37 @@ require 'class/room.php';
 $birthdate = new DateTime('1998-08-12');
 
 $student = new Student(1, 8, "test@gmail.com", "Alien War", $birthdate, "Homme");
+echo "<b>Print avec des nouvelle informations :</b><br>" . $student->createStudent() . "<br>";
 
 $student2 = new Student(1, 8, "test@gmail.com", "Sherlock Holmes", $birthdate, "Homme");
 $email = 'nouveladressemail@gmail.com';
 // Utilisation du setter pour modfier la valeur de $email
-try {
-    $student2->setEmail($email); // Fonctionne bien
-} catch (InvalidArgumentException $e) {
-    echo 'Erreur : ' . $e->getMessage();
-}
+// try {
+//     $student2->setEmail($email); // Fonctionne bien
+// } catch (InvalidArgumentException $e) {
+//     echo 'Erreur : ' . $e->getMessage();
+// }
+echo "<b>Print avec des nouvelle informations :</b><br>" . $student2->createStudent() . "<br>";
 
 $student3 = new Student();
-
-echo "<b>Print avec des nouvelle informations :</b><br>" . $student->createStudent() . "<br>";
-echo "<b>Print avec des nouvelle informations :</b><br>" . $student2->createStudent() . "<br>";
 echo "<b>Print avec les informations par défauts :</b><br>" . $student3->createStudent() . "<br>";
+
+// Crée une nouvelle instance de Student
+// Définit le nom
+// Retourne l'objet
+$student4 = (new Student())->setFullname("OLAF");
+// Creéz toute la fiche de l'étudiant
+echo $student4->createStudent();
+// Affiche que le nom, pas les autres paramètres
+//? tout simplement parce que la fonction n'appelle que cet élément
+echo $student4->getFullname();
+
+$student5 = (new Student())->createStudent();
+echo $student5;
+
+$student6 = (new Student(1, 8, "test@gmail.com", "Alien War", $birthdate, "Homme"))->createStudent();
+echo $student6;
+
 //* print les étages
 //* ---------------------------
 $floor = new Floor(0, "Etage 3", 3);

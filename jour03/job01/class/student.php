@@ -52,10 +52,25 @@ class Student
     // les deux agissent ensemble, ce sont des partenaire du crime
     //? le getter permet de récupérer la valeur de la class
     //*TODO possible de l'avoir sans setter si je veux que la valeur soit lu mais pas modifier
-    public function getEmail(): string
+
+    // le point d'interrogation permet de typer de manière null et laisser la possibilité d'un retour vide
+    public function getEmail(): ?string
     {
         return $this->email;
     }
+    public function getId(): string
+    {
+        return $this->id;
+    }
+    public function getBirthdate(): DateTime
+    {
+        return $this->birthdate;
+    }
+    public function getGender(): string
+    {
+        return $this->gender;
+    }
+
     //? le setter permet de modifier la valeur de la classe
     //*TODO possible de l'avoir sans getter si je veux que la valeur soit modifier sans être lu
     //! quand tu types ta fonction setter, met un void à la fin pour dire que tu n'attends pas de retour
@@ -68,21 +83,16 @@ class Student
         }
     }
 
-    public function getId(): string
+    //* Chaînage de méthode pour une meileure optimisation du code
+    // permet de faire un meilleur appel de la fonction lorsque je veux l'imprimer sur la page web
+    public function setFullname(string $fullname): static
     {
-        return $this->id;
+        $this->fullname = $fullname;
+        return $this;
     }
     public function getFullname(): string
     {
         return $this->fullname;
-    }
-    public function getBirthdate(): DateTime
-    {
-        return $this->birthdate;
-    }
-    public function getGender(): string
-    {
-        return $this->gender;
     }
 }
 
