@@ -1,4 +1,4 @@
 <?php
-require 'job01/class/bdd.php';
+require 'class/bdd.php';
 $dbConnection = new ConnectBDD();
 $pdo = $dbConnection->connectBDD();
