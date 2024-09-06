@@ -1,7 +1,7 @@
 # Runtrack - PHP
 
 <div align="center">
-    <img src="php-brands-solid.svg" alt="Illustration d'un bol de bonbon" width="200" height="200">
+    <img src="./asset/php-brands-solid.svg" alt="Illustration d'un bol de bonbon" width="200" height="200">
 </div>
 
 # 📢 Contexte
